@@ -1,0 +1,3 @@
+/Users/mtx/Desktop/coding/sem1inf/C2048project/cmake-build-debug/CMakeFiles/C2048project.dir
+/Users/mtx/Desktop/coding/sem1inf/C2048project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mtx/Desktop/coding/sem1inf/C2048project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
