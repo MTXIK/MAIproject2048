@@ -6,15 +6,8 @@
 
 #define SIZE 4
 
-int main() {
-	time_t t1;
-	srand ((unsigned) time (&t1));
-	int board[SIZE][SIZE] = {
-	  0
-	};
-}
 
-void generete_new_numb() //генерация числа в случайном месте
+void generete_new_numb(int board[SIZE][SIZE]) //генерация числа в случайном месте
 {
 time_t t1;
 srand ((unsigned) time (&t1));
@@ -22,9 +15,10 @@ int x,y;
 do {
 x = rand() % SIZE;
 y = rand() % SIZE;
-} while (board[x][y] != 0;//board==имя поля
-board[x][y] = (rand() % 2)*2;
+} while (board[x][y] != 0);//board==имя поля
+board[x][y] = (rand() % 2) * 2;
 }
+
 void print_board(int board[SIZE][SIZE]) {
 	printf("\n");
 	for (int i = 0; i < SIZE; i++) {
@@ -35,6 +29,7 @@ void print_board(int board[SIZE][SIZE]) {
 	}
 	printf("\n");
 }
+
 void shift_left(int board[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE - 1; j++) {
@@ -145,4 +140,33 @@ void shift_down(int board[SIZE][SIZE]) {
             }
         }
     }
+}
+
+int game_over(int board[SIZE][SIZE]) {
+    int over = 1;
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if (board[i][j] == 0) {
+                over = 0;
+                break;
+            }
+            if (i < SIZE - 1 && board[i][j] == board[i + 1][j]) {
+                over = 0;
+                break;
+            }
+            if (j < SIZE - 1 && board[i][j] == board[i][j + 1]) {
+                over = 0;
+                break;
+            }
+        }
+    }
+    return over;
+}
+
+int main() {
+	time_t t1;
+	srand ((unsigned) time (&t1));
+	int board[SIZE][SIZE] = {
+	  0
+	};
 }
